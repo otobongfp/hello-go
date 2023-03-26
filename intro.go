@@ -16,8 +16,35 @@ func main() {
 
 	// fmt.Println(speed)
 
-	t, d, speed := 28*24, 56000000, 0
-	speed = d / t
-	fmt.Println(speed)
+	//or method 2
+
+	// t, d, speed := 28*24, 56000000, 0
+	// speed = d / t
+	// fmt.Println(speed)
+
+	// var command = "Get Free"
+	// exit := strings.Contains(command, "Free")
+	// fmt.Println("You are free now!!!", exit)
+	//------------------------------------------------
+
+	// COMPARISONS
+	// var age = 41
+	// var toDrink = age > 18
+	// fmt.Printf("I am %v, am I eligible for a drink? %v \n", age, toDrink)
+	//------------------------------------------------
+	//CALCULATE THE LEAP YEARS
+	// fmt.Println("Is 2028 a Leap Year?")
+	// var leap = 2028/400 == 0 || 2028%4 == 0
+	// if leap {
+	// 	fmt.Println("Yes it is a leap year")
+	// } else {
+	// 	fmt.Println("No it is Not!!!")
+	// }
+
+	var haveTorch = true
+	var litTorch = false
+	if !haveTorch || !litTorch {
+		fmt.Println("Nothing to see here.")
+	}
 
 }
