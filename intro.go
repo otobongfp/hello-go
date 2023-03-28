@@ -2,23 +2,15 @@ package main
 
 import "fmt"
 
-var val = "global"
-
-func changeVal() {
-	fmt.Println("global val = ", val)
-}
-
-func updateVal() {
-	val = "updated global"
-	fmt.Println("global val = ", val)
+type author struct {
+	name, book string
 }
 
 func main() {
+	me := author{
+		"Otobong",
+		"Book of Life",
+	}
 
-	val := 42
-	//a = *val
-	fmt.Printf("%T, local val = %v \n", val, val)
-	changeVal()
-	updateVal()
-	fmt.Printf("%T, local val = %v \n", &val, &val)
+	fmt.Printf("%#v \n", me)
 }
