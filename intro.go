@@ -2,35 +2,16 @@ package main
 
 import "fmt"
 
-type author struct {
-	first string
-	last  string
-}
-
-type person struct {
-	author
-	penName string
-}
-
-func (value author) fullName() string {
-	return value.first + " " + value.last
-}
-
-func (value person) fullName() string {
-	return fmt.Sprintf("%s , (%s)", value.author.fullName(), value.penName)
-}
-
 func main() {
+	var ages = make([]int, 0)
 
-	me := person{
-		author{
-			"Otobong",
-			"Peter",
-		},
-		"Bolt",
-	}
+	fmt.Println(ages)
 
-	fmt.Println(me.fullName())
-	fmt.Printf("%#v \n", me)
+	ages = append(ages, 5)
+	ages = append(ages, 4)
+	ages = append(ages, 12)
+	ages = append(ages, 8)
 
+	fmt.Println(ages)
+	fmt.Println(ages[1:6])
 }
