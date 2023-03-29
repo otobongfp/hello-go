@@ -9,22 +9,19 @@ type book struct {
 	author
 }
 
-type library struct {
-	book
-}
+type library map[string][]book
 
 func (a book) addBook() {
 	a.title = title
 	a.author = author
 }
 
-func (value library) addBook() {
-	value.book.title = title
-	value.book.author = author
+func (lib library) addBook(b book) {
+	lib[b.author.name] = append(lib[b.author.name], b)
 }
 
-func (keyword library) lookupByAuthorName() string {
-	return
+func (lib library) lookupByAuthorName(name string) []book {
+	return lib[name]
 }
 
 func main() {
