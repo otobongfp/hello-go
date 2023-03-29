@@ -1,30 +1,41 @@
 package main
 
-import "fmt"
-
-type person struct {
+type author struct {
 	name string
+}
+
+type book struct {
+	title string
+	author
+}
+
+type library struct {
+	book
+}
+
+func (a book) addBook() {
+	a.title = title
+	a.author = author
+}
+
+func (value library) addBook() {
+	value.book.title = title
+	value.book.author = author
+}
+
+func (keyword library) lookupByAuthorName() string {
+	return
 }
 
 func main() {
 
-	persons := map[string]person{
-		"OP": {name: "Otobong Peter"},
-		"DB": {name: "Dan Brown"},
+	books = book{
+		"Harry Potter",
+		author{
+			"JK Rowling",
+		},
 	}
 
-	fmt.Printf("%v \n", persons)
-	fmt.Printf("DB = %v \n", persons["DB"])
-
-	//change value
-	persons["DB"] = person{name: "Joseph Smith"}
-
-	value, ok := persons["DB"]
-	fmt.Printf("DB = %v, ok = %v \n", value, ok)
-
-	delete(persons, "DB")
-	fmt.Printf("DB = %v, ok = %v \n", value, ok)
-	fmt.Printf("DB = %v \n", persons["DB"])
-	fmt.Printf("%v \n", persons)
+	fmt.println()
 
 }
