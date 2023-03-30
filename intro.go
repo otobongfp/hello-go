@@ -1,38 +1,35 @@
 package main
 
+import "fmt"
+
+// Author type with name field
 type author struct {
 	name string
 }
 
+// Book with title and author field
 type book struct {
-	title string
-	author
+	title  string
+	author author
 }
 
+// A library that maps books
 type library map[string][]book
 
-func (a book) addBook() {
-	a.title = title
-	a.author = author
-}
-
-func (lib library) addBook(b book) {
-	lib[b.author.name] = append(lib[b.author.name], b)
-}
-
-func (lib library) lookupByAuthorName(name string) []book {
-	return lib[name]
+// add books
+func (l library) addBook(b book) {
+	l[b.author.name] = append(l[b.author.name], b)
 }
 
 func main() {
 
-	books = book{
-		"Harry Potter",
-		author{
-			"JK Rowling",
-		},
-	}
+	type cash float32
+	type farm string
 
-	fmt.println()
+	var money cash = 78
+	var crops farm = "Cassava"
+
+	fmt.Println(money)
+	fmt.Println(crops)
 
 }
