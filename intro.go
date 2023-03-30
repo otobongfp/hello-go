@@ -2,18 +2,22 @@ package main
 
 import "fmt"
 
+func parseOddsEvens(num []int) (odds []int, evens []int) {
+	for _, v := range num {
+		if even := v%2 == 0; even {
+			evens = append(evens, v)
+		} else {
+			odds = append(odds, v)
+		}
+	}
+	return
+}
+
 func main() {
 
-	num := []int{2, 45, 67, 34, 23, 12, 21, 34, 56}
+	odds, evens := parseOddsEvens([]int{11, 25, 67, 78, 98, 22, 46, 21, 12, 2, 44, 43, 66, 44, 19})
 
-	for i, n := range num {
-		fmt.Println(i, n)
-	}
+	fmt.Println(odds)
+	fmt.Println(evens)
 
-	magicWords := map[int]string{1: "please", 2: "excuse me", 3: "thank you", 4: "sorry"}
-
-	fmt.Println("Magic Words")
-	for k, v := range magicWords {
-		fmt.Println(k, v)
-	}
 }
