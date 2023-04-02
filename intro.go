@@ -2,29 +2,28 @@ package main
 
 import "fmt"
 
-func later(result string) {
-	fmt.Println(result)
+type humanoid interface {
+	speak()
+	walk()
 }
+
+type person struct{ name string }
+
+func (p person) speak() { fmt.Printf("%s speaking...", p.name) }
+func (p person) walk()  { fmt.Printf("%s walking... \n", p.name) }
+
+type dog struct{}
+
+func (d dog) walk() { fmt.Printf("%s is walking...", d) }
 
 func main() {
 
-	//defer
+	p := person{name: "Bolt"}
+	doHumanoid(p)
 
-	defer later("first")
-	defer later("second")
-	defer later("third")
+}
 
-	fmt.Println("Lets Skip to the Good Part")
-	fmt.Println("Yes!!!")
-
-	//recovery
-	defer func() {
-		if err := recover(); err != nil {
-			fmt.Println("Recovered from Panic: ", err)
-		}
-	}()
-
-	//panics
-	panic("Something went wrong!!!")
-
+func doHumanoid(h humanoid) {
+	h.speak()
+	h.walk()
 }
