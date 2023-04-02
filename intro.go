@@ -1,19 +1,30 @@
 package main
 
-import (
-	"fmt"
-	"runtime"
-)
+import "fmt"
+
+func later(result string) {
+	fmt.Println(result)
+}
 
 func main() {
 
-	switch os := runtime.GOOS; os {
-	case "linux", "unix":
-		fmt.Printf("%s \n", os)
-	case "windows":
-		fmt.Printf("%s \n", os)
-	default:
-		fmt.Printf("Something is wrong")
-	}
+	//defer
+
+	defer later("first")
+	defer later("second")
+	defer later("third")
+
+	fmt.Println("Lets Skip to the Good Part")
+	fmt.Println("Yes!!!")
+
+	//recovery
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println("Recovered from Panic: ", err)
+		}
+	}()
+
+	//panics
+	panic("Something went wrong!!!")
 
 }
