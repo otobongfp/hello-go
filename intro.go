@@ -7,14 +7,13 @@ import (
 
 func main() {
 
-	os := runtime.GOOS
-
-	if os == "Linux" || os == "Unix" {
-		fmt.Printf("%v \n", os)
-	} else if os == "Windows" {
-		fmt.Printf("%v \n", os)
-	} else {
+	switch os := runtime.GOOS; os {
+	case "linux", "unix":
 		fmt.Printf("%s \n", os)
+	case "windows":
+		fmt.Printf("%s \n", os)
+	default:
+		fmt.Printf("Something is wrong")
 	}
 
 }
